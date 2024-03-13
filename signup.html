@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup and Login Page</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        .forms {
+            display: flex;
+        }
+
+        .form {
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+            margin: 10px;
+        }
+
+        .form h2 {
+            color: #333;
+        }
+
+        .form input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        .form button {
+            background-color: #491ec0;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form button:hover {
+            background-color: #2432b1;
+        }
+
+        .form-link {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .form-link a {
+            color: #007BFF;
+            text-decoration: none;
+            
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="forms">
+        <!-- Signup Form -->
+        <div class="form signup">
+            <h2>Signup</h2>
+            <form action="https://jifunze-hub.onrender.com/api/signup" method="POST">
+                <input type="text" name="FirstName" placeholder="First Name" required>
+                <br>
+                <input type="text" name="LastName" placeholder="Last Name" required>
+                <br>
+                <input type="email" name="UserEmail" placeholder="Email" required>
+                <br>
+                <input type="password" name="UserPasswordHash" placeholder="Create password" required>
+                <br>
+                <input type="password" name="UserCPassword" placeholder="Confirm password" required>
+                <br>
+                <button type="submit">Signup</button>
+            </form>
+            <div class="form-link">
+                <span>Already have an account? <a href="#" onclick="toggleForms()">Login</a></span>
+            </div>
+        </div>
+
+        <!-- Login Form -->
+        <div class="form login" style="display:none;">
+            <h2>Login</h2>
+            <form action="https://jifunze-hub.onrender.com/api/login" method="POST">
+                <input type="email" name="UserEmail" placeholder="Email" required>
+                <br>
+                <input type="password" name="UserPasswordHash" placeholder="Password" required>
+                <br>
+                <button type="submit">Login</button>
+            </form>
+            <div class="form-link">
+                <span>Don't have an account? <a href="#" onclick="toggleForms()">Signup</a></span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleForms() {
+            var signupForm = document.querySelector('.signup');
+            var loginForm = document.querySelector('.login');
+
+            signupForm.style.display = signupForm.style.display === 'none' ? 'block' : 'none';
+            loginForm.style.display = loginForm.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+</body>
+
+</html>
